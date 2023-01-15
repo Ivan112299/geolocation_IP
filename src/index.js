@@ -46,7 +46,7 @@ function setInfo(mapData){
     ipInfo.innerText = mapData.ip
     locationInfo.innerText = `${mapData.country},
     ${mapData.city}`
-    timezoneInfo.innerText = `UTC ${mapData.timezone.utс}`;
+    timezoneInfo.innerText = `UTC ${mapData.timezone.utc}`;
     ispInfo.innerText = mapData.continent
     positionOnMap(mapData)
     // проверяем разрешение
@@ -59,7 +59,7 @@ function setInfo(mapData){
 //вывод поленной инфорации на карту
 function positionOnMap(mapData){
 
-    console.log(mapData)
+    // console.log(mapData)
     let x = mapData.latitude
     let y = mapData.longitude
     L.marker([x, y],{icon: markerIcon}).addTo(map);
