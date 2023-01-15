@@ -42,12 +42,12 @@ function handleKey(e){
 
 //вывод прлученной информации
 function setInfo(mapData){
-
+    console.log(mapData.timezone.utc)
     ipInfo.innerText = mapData.ip
-    locationInfo.innerText = `${mapData.location.region},
-    ${mapData.location.city}`
-    timezoneInfo.innerText = `UTC ${mapData.location.timezone}`;
-    ispInfo.innerText = mapData.isp
+    locationInfo.innerText = `${mapData.country},
+    ${mapData.city}`
+    timezoneInfo.innerText = `UTC ${mapData.timezone.utс}`;
+    ispInfo.innerText = mapData.continent
     positionOnMap(mapData)
     // проверяем разрешение
     if(matchMedia('(max-width: 1023px)').matches){
@@ -60,8 +60,8 @@ function setInfo(mapData){
 function positionOnMap(mapData){
 
     console.log(mapData)
-    let x = mapData.location.lat
-    let y = mapData.location.lng
+    let x = mapData.latitude
+    let y = mapData.longitude
     L.marker([x, y],{icon: markerIcon}).addTo(map);
     map.setView([x, y], 13)
 
